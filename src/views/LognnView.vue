@@ -24,8 +24,8 @@
       <el-input v-model="numberValidateForm.querenmima" type="password" autocomplete="off" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm(formRef)">submitForm</el-button>
-      <el-button @click="resetForm(formRef)">Reset</el-button>
+      <el-button type="primary" @click="submitForm(formRef)">登录</el-button>
+      <el-button @click="resetForm(formRef)">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -55,7 +55,7 @@ const submitForm = (formEl) => {
         numberValidateForm.value.username === 'www' &&
         numberValidateForm.value.password === '111'
       ) {
-        ElMessage.success('登录成功')
+        // ElMessage.success('登录成功')
         router.replace('/logon')
       } else {
         //错误的一行要加else

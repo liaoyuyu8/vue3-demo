@@ -37,6 +37,10 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
+
+const router = useRouter()
 
 const form = reactive({
   username: '',
@@ -78,8 +82,9 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     // 登录成功后的处理，例如跳转页面
-    // router.push('/dashboard');
-    alert('登录成功')
+    localStorage.setItem('auth_token', form.username)
+    ElMessage.success('登录成功')
+    router.replace('/')
   } catch (error) {
     console.error('登录失败:', error)
     alert('登录失败，请检查用户名和密码')
